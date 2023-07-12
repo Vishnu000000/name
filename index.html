@@ -119,12 +119,11 @@
             margin: 60px 0 80px;
             text-align: center;
         }
-        /*
+        
         #share-it>a {
             display: inline-block;
             margin: 0 30px;
         }
-        */
         
         #contact-form {
             margin-left: auto;
@@ -512,9 +511,13 @@
         <p class="h2">Find it out. Now.</p>
         <p class="h4">1. Click the button.<br><br>2. Pay 1 Rupee.<br><br>3. See the counter<br><br>4. Tell your friends</p>
         <div id="pay-form">
-
-            <img alt="" border="0" src="https://www.marvelpics.org/img/vishnu.png" width="1" height="1">
-
+            <form>
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="3J7VN5LMM2JWW">
+                <input type="hidden" name="custom" value="64ae7ce5d72c5">
+                <input type="image" src="https://www.marvelpics.org/img/vishnu.png" border="0" name="submit" alt="Pay">
+                <img alt="" border="0" src="https://www.marvelpics.org/img/vishnu.png" width="1" height="1">
+            </form>
 
 
             <p class="h4">If you just paid 1 rupee and you cant see the counter, press F5 once or simply refresh.</p>

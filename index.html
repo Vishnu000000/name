@@ -1,276 +1,562 @@
-<!-- Created by Iamkvv -->
-
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Animate Your Name</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-        <style>
-        /* Created by Iamkvv */ 
 
-@import url(https://fonts.googleapis.com/css?family=Fredoka+One);
-body {
-  background-color: black;
-}
+<head>
+    <meta charset="utf-8" />
+    <title>How many people paid 1 Rupee to see how many people paid 1 Rupee?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Are you curious too?">
+    <meta property="og:description" content="I just paid 1 Rupee to see how many people paid 1 Rupee!">
+    <meta property="og:image" content="http://www.marvelpics.org/">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
 
-@keyframes wave {
-  from {
-  -webkit-transform: translate3d(0,0,0);
-    /*-ms-transform: translateY (0);*/
-    /*-webkit-transform: translateY (0);*/
-    /*-moz-transform: translateY (0);*/
-    /*-o-transform: translateY (0);*/
-    /*transform: translateY(0);*/
-    color: white;
-  }
-  to {
-      -webkit-transform: translate3d(0,-90px,0);
-    /*-ms-transform: translateY (-90px);*/
-    /*-webkit-transform: translateY (-90px);*/
-    /*-moz-transform: translateY (-90px);*/
-    /*-o-transform: translateY (-90px);*/
-    /*transform: translateY(-90px);*/
-  }
-}
-.wavetext {
-  margin-top: 10em;
-  text-align: center;
-}
 
-.wavetext span {
-  display: inline-block;
-  font-family: "Fredoka One", sans-serif;
-  font-size: 50px;
-  animation-duration: 0.3s;
-  animation-name: wave;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
+    <style>
+        /*!
 
-.wavetext :nth-child(40n + 0) {
-  animation-delay: -0.6s;
-  color: #c85014;
-}
+    */
+        
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        
+        html {
+            background-color: rgb(0, 0, 0, 0.8);
+            font-size: 10px;
+        }
+        
+        body {
+            color: #fff;
+            font-family: "Oswald", Arial, sans-serif;
+            font-size: 14px;
+            margin: 0 18px 10px;
+        }
+        
+        a:link {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        h1,
+        .h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin: 90px 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        h2,
+        .h2 {
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        h3,
+        .h3 {
+            font-size: 15px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        h4,
+        .h4 {
+            font-size: 16px;
+            font-family: "Oswald", Arial, sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        @media screen and (min-width: 600px) {
+            h1,
+            .h1 {
+                font-size: 60px;
+            }
+            h2,
+            .h2 {
+                font-size: 30px;
+                font-weight: 700;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+        
+        #wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        #people-paid {
+            font-size: 90px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        @media screen and (min-width: 600px) {
+            #people-paid {
+                font-size: 130px;
+            }
+        }
+        
+        #share-it,
+        #pay-form,
+        #contact-form {
+            margin: 60px 0 80px;
+            text-align: center;
+        }
+        
+        #share-it>a {
+            display: inline-block;
+            margin: 0 30px;
+        }
+        
+        #contact-form {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            width: 400px;
+        }
+        
+        .error {
+            background: #d04040;
+            border: 1px solid #f00;
+            margin-bottom: 30px;
+            padding: 15px;
+        }
+        
+        .success {
+            background: #439c41;
+            border: 1px solid #0f0;
+            margin-bottom: 30px;
+            padding: 15px;
+        }
+        
+        .form-row {
+            padding: 15px 0;
+        }
+        
+        .form-row>label {
+            cursor: pointer;
+            display: block;
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+        
+        .form-row>input,
+        .form-row>textarea {
+            font-size: 18px;
+            padding: 5px;
+            width: 100%;
+        }
+        
+        .form-row>input[type="submit"] {
+            background-color: #1c557e;
+            border: 1px solid #1c557e;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .form-row>input[type="submit"]:hover,
+        .form-row>input[type="submit"]:focus {
+            background-color: #174668;
+        }
+        
+        .form-row>input[type="submit"]:active {
+            box-shadow: inset 0px 0px 29px 5px rgba(0, 0, 0, 0.75);
+        }
+        
+        #social-media {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        #social-media>a {
+            display: inline-block;
+            margin: 0 3px;
+        }
+        
+        #contact {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        #contact-link {
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+        /**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+        /* Document
+   ========================================================================== */
+        
+        html {
+            font-family: sans-serif;
+            /* 1 */
+            line-height: 1.15;
+            /* 2 */
+            -ms-text-size-adjust: 100%;
+            /* 3 */
+            -webkit-text-size-adjust: 100%;
+            /* 3 */
+        }
+        /* Sections
+   ========================================================================== */
+        /**
+ * Remove the margin in all browsers (opinionated).
+ */
+        
+        body {
+            margin: 0;
+        }
+        /**
+ * Add the correct display in IE 9-.
+ */
+        
+        article,
+        aside,
+        footer,
+        header,
+        nav,
+        section {
+            display: block;
+        }
+        /**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+        
+        h1 {
+            font-size: 2em;
+            margin: 0.67em 0;
+        }
+        
+        figcaption,
+        figure,
+        main {
+            /* 1 */
+            display: block;
+        }
+        
+        figure {
+            margin: 1em 40px;
+        }
+        
+        hr {
+            box-sizing: content-box;
+            /* 1 */
+            height: 0;
+            /* 1 */
+            overflow: visible;
+            /* 2 */
+        }
+        
+        pre {
+            font-family: monospace, monospace;
+            /* 1 */
+            font-size: 1em;
+            /* 2 */
+        }
+        
+        a {
+            background-color: transparent;
+            /* 1 */
+            -webkit-text-decoration-skip: objects;
+            /* 2 */
+        }
+        
+        a:active,
+        a:hover {
+            outline-width: 0;
+        }
+        
+        abbr[title] {
+            border-bottom: none;
+            /* 1 */
+            text-decoration: underline;
+            /* 2 */
+            text-decoration: underline dotted;
+            /* 2 */
+        }
+        
+        b,
+        strong {
+            font-weight: inherit;
+        }
+        
+        b,
+        strong {
+            font-weight: bolder;
+        }
+        
+        code,
+        kbd,
+        samp {
+            font-family: monospace, monospace;
+            /* 1 */
+            font-size: 1em;
+            /* 2 */
+        }
+        
+        dfn {
+            font-style: italic;
+        }
+        
+        mark {
+            background-color: #ff0;
+            color: #000;
+        }
+        
+        small {
+            font-size: 80%;
+        }
+        
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+        
+        sub {
+            bottom: -0.25em;
+        }
+        
+        sup {
+            top: -0.5em;
+        }
+        
+        audio,
+        video {
+            display: inline-block;
+        }
+        
+        audio:not([controls]) {
+            display: none;
+            height: 0;
+        }
+        
+        img {
+            border-style: none;
+        }
+        
+        svg:not(:root) {
+            overflow: hidden;
+        }
+        
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: sans-serif;
+            /* 1 */
+            font-size: 100%;
+            /* 1 */
+            line-height: 1.15;
+            /* 1 */
+            margin: 0;
+            /* 2 */
+        }
+        
+        button,
+        input {
+            /* 1 */
+            overflow: visible;
+        }
+        
+        button,
+        select {
+            /* 1 */
+            text-transform: none;
+        }
+        
+        button,
+        html [type="button"],
+        [type="reset"],
+        [type="submit"] {
+            -webkit-appearance: button;
+        }
+        
+        button::-moz-focus-inner,
+        [type="button"]::-moz-focus-inner,
+        [type="reset"]::-moz-focus-inner,
+        [type="submit"]::-moz-focus-inner {
+            border-style: none;
+            padding: 0;
+        }
+        
+        button:-moz-focusring,
+        [type="button"]:-moz-focusring,
+        [type="reset"]:-moz-focusring,
+        [type="submit"]:-moz-focusring {
+            outline: 1px dotted ButtonText;
+        }
+        
+        fieldset {
+            border: 1px solid #c0c0c0;
+            margin: 0 2px;
+            padding: 0.35em 0.625em 0.75em;
+        }
+        
+        legend {
+            box-sizing: border-box;
+            /* 1 */
+            color: inherit;
+            /* 2 */
+            display: table;
+            /* 1 */
+            max-width: 100%;
+            /* 1 */
+            padding: 0;
+            /* 3 */
+            white-space: normal;
+            /* 1 */
+        }
+        
+        progress {
+            display: inline-block;
+            /* 1 */
+            vertical-align: baseline;
+            /* 2 */
+        }
+        
+        textarea {
+            overflow: auto;
+        }
+        
+        [type="checkbox"],
+        [type="radio"] {
+            box-sizing: border-box;
+            padding: 0;
+        }
+        
+        [type="number"]::-webkit-inner-spin-button,
+        [type="number"]::-webkit-outer-spin-button {
+            height: auto;
+        }
+        
+        [type="search"] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px;
+        }
+        
+        [type="search"]::-webkit-search-cancel-button,
+        [type="search"]::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+        
+         ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            /* 1 */
+            font: inherit;
+            /* 2 */
+        }
+        
+        details,
+        menu {
+            display: block;
+        }
+        
+        summary {
+            display: list-item;
+        }
+        
+        canvas {
+            display: inline-block;
+        }
+        
+        template {
+            display: none;
+        }
+        /* Hidden
+   ========================================================================== */
+        /**
+ * Add the correct display in IE 10-.
+ */
+        
+        [hidden] {
+            display: none;
+        }
+    </style>
 
-.wavetext :nth-child(40n + 1) {
-  animation-delay: -0.585s;
-  color: #dc503c;
-}
 
-.wavetext :nth-child(40n + 2) {
-  animation-delay: -0.57s;
-  color: #f0502d;
-}
 
-.wavetext :nth-child(40n + 3) {
-  animation-delay: -0.555s;
-  color: #ff501e;
-}
 
-.wavetext :nth-child(40n + 4) {
-  animation-delay: -0.54s;
-  color: #ff5046;
-}
 
-.wavetext :nth-child(40n + 5) {
-  animation-delay: -0.525s;
-  color: #ff5037;
-}
 
-.wavetext :nth-child(40n + 6) {
-  animation-delay: -0.51s;
-  color: #ff5028;
-}
 
-.wavetext :nth-child(40n + 7) {
-  animation-delay: -0.495s;
-  color: #ff5019;
-}
 
-.wavetext :nth-child(40n + 8) {
-  animation-delay: -0.48s;
-  color: #cd5041;
-}
+</head>
 
-.wavetext :nth-child(40n + 9) {
-  animation-delay: -0.465s;
-  color: #e15032;
-}
+<body>
 
-.wavetext :nth-child(40n + 10) {
-  animation-delay: -0.45s;
-  color: #f55023;
-}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2DMD4"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-.wavetext :nth-child(40n + 11) {
-  animation-delay: -0.435s;
-  color: #ff5014;
-}
 
-.wavetext :nth-child(40n + 12) {
-  animation-delay: -0.42s;
-  color: #ff503c;
-}
 
-.wavetext :nth-child(40n + 13) {
-  animation-delay: -0.405s;
-  color: #ff502d;
-}
+    <div id="wrapper">
+        <h1>How many people paid 1 rupee<br>to see how many people paid 1 rupee?</h1>
 
-.wavetext :nth-child(40n + 14) {
-  animation-delay: -0.39s;
-  color: #ff501e;
-}
+        <p class="h2">Find it out. Now.</p>
+        <p class="h4">1. Click the button.<br><br>2. Pay 1 Rupee.<br><br>3. See the counter<br><br>4. Tell your friends</p>
+        <div id="pay-form">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="3J7VN5LMM2JWW">
+                <input type="hidden" name="custom" value="64ae7ce5d72c5">
+                <input type="image" src="https://www.marvelpics.org/img/vishnu.png" border="0" name="submit" alt="Pay">
+                <img alt="" border="0" src="https://www.marvelpics.org/img/vishnu.png" width="1" height="1">
+            </form>
 
-.wavetext :nth-child(40n + 15) {
-  animation-delay: -0.375s;
-  color: #ff5046;
-}
 
-.wavetext :nth-child(40n + 16) {
-  animation-delay: -0.36s;
-  color: #d25037;
-}
+            <p class="h4">If you just paid 1 rupee and you cant see the counter, press F5 once or simply refresh.</p>
 
-.wavetext :nth-child(40n + 17) {
-  animation-delay: -0.345s;
-  color: #e65028;
-}
 
-.wavetext :nth-child(40n + 18) {
-  animation-delay: -0.33s;
-  color: #fa5019;
-}
+        </div>
 
-.wavetext :nth-child(40n + 19) {
-  animation-delay: -0.315s;
-  color: #ff5041;
-}
 
-.wavetext :nth-child(40n + 20) {
-  animation-delay: -0.3s;
-  color: #ff5032;
-}
+        <div id="social-media">
+            <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+            <span class='st_twitter_hcount' displayText='Tweet'></span>
+            <span class='st__hcount' displayText=''></span>
+            <span class='st_reddit_hcount' displayText='Reddit'></span>
+            <span class='st_googleplus_hcount' displayText='Google +'></span>
+        </div>
 
-.wavetext :nth-child(40n + 21) {
-  animation-delay: -0.285s;
-  color: #ff5023;
-}
 
-.wavetext :nth-child(40n + 22) {
-  animation-delay: -0.27s;
-  color: #ff5014;
-}
+        <div id="contact">
+            Contact
+        </div>
+        <br>
+        <br>
+        <p class="h4">Website by "K Vishnu Vardhan"</p>
+    </div>
+</body>
 
-.wavetext :nth-child(40n + 23) {
-  animation-delay: -0.255s;
-  color: #ff503c;
-}
-
-.wavetext :nth-child(40n + 24) {
-  animation-delay: -0.24s;
-  color: #d7502d;
-}
-
-.wavetext :nth-child(40n + 25) {
-  animation-delay: -0.225s;
-  color: #eb501e;
-}
-
-.wavetext :nth-child(40n + 26) {
-  animation-delay: -0.21s;
-  color: #ff5046;
-}
-
-.wavetext :nth-child(40n + 27) {
-  animation-delay: -0.195s;
-  color: #ff5037;
-}
-
-.wavetext :nth-child(40n + 28) {
-  animation-delay: -0.18s;
-  color: #ff5028;
-}
-
-.wavetext :nth-child(40n + 29) {
-  animation-delay: -0.165s;
-  color: #ff5019;
-}
-
-.wavetext :nth-child(40n + 30) {
-  animation-delay: -0.15s;
-  color: #ff5041;
-}
-
-.wavetext :nth-child(40n + 31) {
-  animation-delay: -0.135s;
-  color: #c85032;
-}
-
-.wavetext :nth-child(40n + 32) {
-  animation-delay: -0.12s;
-  color: #dc5023;
-}
-
-.wavetext :nth-child(40n + 33) {
-  animation-delay: -0.105s;
-  color: #f05014;
-}
-
-.wavetext :nth-child(40n + 34) {
-  animation-delay: -0.09s;
-  color: #ff503c;
-}
-
-.wavetext :nth-child(40n + 35) {
-  animation-delay: -0.075s;
-  color: #ff502d;
-}
-
-.wavetext :nth-child(40n + 36) {
-  animation-delay: -0.06s;
-  color: #ff501e;
-}
-
-.wavetext :nth-child(40n + 37) {
-  animation-delay: -0.045s;
-  color: #ff5046;
-}
-
-.wavetext :nth-child(40n + 38) {
-  animation-delay: -0.03s;
-  color: #ff5037;
-}
-
-.wavetext :nth-child(40n + 39) {
-  animation-delay: -0.015s;
-  color: #cd5028;
-}
-
-        </style>
-    </head>
-    <body onload="myFunction()">
-    
-    <script>
-function myFunction(){
-    var name = prompt("Name Decoration Code🎉🎉 \nPlease Enter your Full Name");
-    //var name = Default as "";
-    var capName = name[0].toUpperCase().toString()+name.slice(1,name.length).toString();
-    
-    if (name.length > 5) {
-    swal("Hey "+ capName ,"Welcome🎉🎉","success");
-    for(var i in name) { 
-      if(1) {
-          document.getElementById('myWave').innerHTML+='<span>'+capName[i]+'</span>';
-      }
-    }}
-    else {
-        swal("Name should be Atleast 6 Characters, Please Reload and Enter your Name as Big as Possible👀");
-    }
-}
-</script>
-        <div id="myWave" class="wavetext"></div>
-    </body>
 </html>
